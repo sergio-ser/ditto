@@ -9,6 +9,7 @@ https://newsletter.hls.md
 - `.env.production.example`: template for the root `.env` file used by `docker-compose.lite.yaml`.
 - `Caddyfile`: HTTPS reverse proxy config. Caddy terminates TLS and proxies to HLS Newsletter on localhost port 3000.
 - `docker-compose.hls.yaml`: builds your HLS image from this fork and passes production domain/security env vars into the HLS Newsletter containers.
+- `backup.sh`: creates a Postgres logical dump and archives the Postgres/ClickHouse Docker volumes.
 
 ## Basic VPS Flow
 
@@ -26,6 +27,35 @@ docker compose -f docker-compose.lite.yaml -f deploy/hls/docker-compose.hls.yaml
 
 ```bash
 docker compose -f docker-compose.lite.yaml -f deploy/hls/docker-compose.hls.yaml up -d --force-recreate
+```
+
+## Backups
+
+Run a backup manually from the VPS:
+
+```bash
+cd /apps/ditto
+./deploy/hls/backup.sh
+```
+
+By default this writes timestamped backup folders to `/apps/ditto-backups` and removes backups older than 14 days. The script briefly stops the stack while archiving Docker volumes, then starts it again.
+
+If the app or backup directory is different, override the paths:
+
+```bash
+APP_DIR=/apps/ditto BACKUP_ROOT=/apps/ditto-backups ./deploy/hls/backup.sh
+```
+
+To run the backup every day, add this to the root crontab with `sudo crontab -e`:
+
+```cron
+0 3 * * * APP_DIR=/apps/ditto BACKUP_ROOT=/apps/ditto-backups /apps/ditto/deploy/hls/backup.sh >> /apps/ditto/.tmp/backup.log 2>&1
+```
+
+This runs daily at 03:00 server time. Make sure `/apps/ditto/.tmp` exists before installing the cron entry:
+
+```bash
+mkdir -p /apps/ditto/.tmp
 ```
 
 ## Branding
