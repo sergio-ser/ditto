@@ -2,9 +2,7 @@
 
 This folder contains local deployment helpers for running Dittofeed at:
 
-https://newletter.hls.md
-
-If the intended subdomain is `newsletter.hls.md`, replace `newletter.hls.md` in both files.
+https://newsletter.hls.md
 
 ## Files
 
@@ -14,7 +12,7 @@ If the intended subdomain is `newsletter.hls.md`, replace `newletter.hls.md` in 
 
 ## Basic VPS Flow
 
-1. Point DNS `A` record for `newletter.hls.md` to the server public IP.
+1. Point DNS `A` record for `newsletter.hls.md` to the server public IP.
 2. Install Docker, Docker Compose plugin, and Caddy on the server.
 3. Copy `.env.production.example` to repo root as `.env` and replace all secrets.
 4. Start Dittofeed:
