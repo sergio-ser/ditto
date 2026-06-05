@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_DIR="${APP_DIR:-/opt/dittofeed}"
-BACKUP_ROOT="${BACKUP_ROOT:-/opt/dittofeed-backups}"
+APP_DIR="${APP_DIR:-/apps/ditto}"
+BACKUP_ROOT="${BACKUP_ROOT:-/apps/ditto-backups}"
 COMPOSE_FILES=(-f docker-compose.lite.yaml -f deploy/hls/docker-compose.hls.yaml)
 DATE="$(date +%F-%H%M%S)"
 BACKUP_DIR="$BACKUP_ROOT/$DATE"
