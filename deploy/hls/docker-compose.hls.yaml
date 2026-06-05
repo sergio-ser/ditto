@@ -1,0 +1,19 @@
+services:
+  lite:
+    env_file:
+      - .env
+    environment:
+      DASHBOARD_URL: ${DASHBOARD_URL}
+      DASHBOARD_API_BASE: ${DASHBOARD_API_BASE}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-true}
+      BOOTSTRAP: ${BOOTSTRAP:-true}
+
+  admin-cli:
+    env_file:
+      - .env
+    environment:
+      DASHBOARD_URL: ${DASHBOARD_URL}
+      DASHBOARD_API_BASE: ${DASHBOARD_API_BASE}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-true}
