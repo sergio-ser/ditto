@@ -27,10 +27,10 @@ function NavCard() {
   if (whiteLabelConfig && !whiteLabelConfig.navCardTitle) {
     return null;
   }
-  const title = whiteLabelConfig?.navCardTitle || "Dittofeed";
+  const title = whiteLabelConfig?.navCardTitle || "HLS Newsletter";
   const description = whiteLabelConfig
     ? whiteLabelConfig.navCardDescription ?? null
-    : "Customer Engagement";
+    : "Newsletter Platform";
 
   const icon = whiteLabelConfig?.navCardIcon ? (
     <img

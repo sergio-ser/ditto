@@ -20,14 +20,14 @@ export default function DashboardHead() {
   return (
     <Head>
       <title>
-        {whiteLabelConfig?.title ? whiteLabelConfig.title : "Dittofeed"}
+        {whiteLabelConfig?.title ? whiteLabelConfig.title : "HLS Newsletter"}
       </title>
       {whiteLabelConfig?.favicon ? (
         <link rel="icon" href={whiteLabelConfig.favicon} />
       ) : (
         <link rel="icon" type="image/png" href="/dashboard/favicon.png" />
       )}
-      <meta name="description" content="Open Source Customer Engagement" />
+      <meta name="description" content="HLS Newsletter" />
     </Head>
   );
 }

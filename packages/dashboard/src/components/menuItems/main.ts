@@ -128,13 +128,12 @@ const menuItems: { items: MenuItemGroup[] } = {
       children: [
         {
           id: "documentation",
-          title: "Documentation",
+          title: "HLS Website",
           type: "item",
-          url: "https://docs.dittofeed.com",
+          url: "https://hls.md",
           icon: MenuBookOutlined,
           external: true,
-          description:
-            "Documentation with instructions and guidelines on how to use Dittofeed.",
+          description: "Visit the HLS website.",
         },
         {
           id: "contact",

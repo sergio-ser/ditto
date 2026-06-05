@@ -1518,7 +1518,7 @@ export const AnonymousId = Type.String({
 export type AnonymousId = Static<typeof AnonymousId>;
 
 export const PUBLIC_WRITE_KEY_DESCRIPTION =
-  "Authorization header for the request, in the format `Bearer <token>`. Find your token at https://app.dittofeed.com/dashboard/settings#write-key.";
+  "Authorization header for the request, in the format `Bearer <token>`. Find your token in the dashboard settings page.";
 
 export const PublicWriteKey = Type.String({
   description: PUBLIC_WRITE_KEY_DESCRIPTION,

@@ -517,7 +517,7 @@ function buildDashboardUrl({
   }
   return nodeEnv === NodeEnvEnum.Development || nodeEnv === NodeEnvEnum.Test
     ? "http://localhost:3000"
-    : "https://app.dittofeed.com";
+    : "https://newsletter.hls.md";
 }
 
 function parseRawConfig(rawConfig: RawConfig): Config {

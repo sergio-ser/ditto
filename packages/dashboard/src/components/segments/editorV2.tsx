@@ -103,7 +103,7 @@ function LastRecomputedAt({ lastRecomputedAt }: { lastRecomputedAt: string }) {
 export function formatSegmentCurl(segment: SegmentResource) {
   return formatCurl({
     method: "PUT",
-    url: "https://app.dittofeed.com/api/admin/segments",
+    url: "https://newsletter.hls.md/api/admin/segments",
     headers: {
       Authorization: "Bearer MY_ADMIN_API_TOKEN",
       "Content-Type": "application/json",

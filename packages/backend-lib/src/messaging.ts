@@ -1645,7 +1645,7 @@ export async function sendEmail({
 
     case EmailProviderType.MailChimp: {
       // Mandatory for Mailchimp
-      const website = getWebsiteFromFromEmail(from) ?? "https://dittofeed.com";
+      const website = getWebsiteFromFromEmail(from) ?? "https://hls.md";
       let mailChimpTo: MailChimpMessage["to"] = [{ email: to }];
       if (cc && cc.length > 0) {
         mailChimpTo = mailChimpTo.concat(

@@ -1,24 +1,24 @@
-# HLS Dittofeed Production Notes
+# HLS Newsletter Production Notes
 
-This folder contains local deployment helpers for running Dittofeed at:
+This folder contains local deployment helpers for running HLS Newsletter at:
 
 https://newsletter.hls.md
 
 ## Files
 
 - `.env.production.example`: template for the root `.env` file used by `docker-compose.lite.yaml`.
-- `Caddyfile`: HTTPS reverse proxy config. Caddy terminates TLS and proxies to Dittofeed on localhost port 3000.
-- `docker-compose.hls.yaml`: passes HLS production domain/security env vars into the Dittofeed containers.
+- `Caddyfile`: HTTPS reverse proxy config. Caddy terminates TLS and proxies to HLS Newsletter on localhost port 3000.
+- `docker-compose.hls.yaml`: builds your HLS image from this fork and passes production domain/security env vars into the HLS Newsletter containers.
 
 ## Basic VPS Flow
 
 1. Point DNS `A` record for `newsletter.hls.md` to the server public IP.
 2. Install Docker, Docker Compose plugin, and Caddy on the server.
 3. Copy `.env.production.example` to repo root as `.env` and replace all secrets.
-4. Start Dittofeed:
+4. Start HLS Newsletter:
 
 ```bash
-docker compose -f docker-compose.lite.yaml -f deploy/hls/docker-compose.hls.yaml up -d
+docker compose -f docker-compose.lite.yaml -f deploy/hls/docker-compose.hls.yaml up -d --build
 ```
 
 5. Run Caddy with this Caddyfile, or copy the site block into `/etc/caddy/Caddyfile` and reload Caddy.

@@ -1,5 +1,5 @@
 // material-ui
-import { GitHub, Lock, Search as SearchIcon } from "@mui/icons-material";
+import { Lock, Search as SearchIcon } from "@mui/icons-material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Box,
@@ -7,8 +7,6 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-  IconButton,
-  Link,
   ListSubheader,
   MenuItem,
   Select,
@@ -147,7 +145,7 @@ function BranchSelect() {
             <TextField defaultValue="maxgurewitz/" sx={{ width: "100%" }} />
             <Typography variant="caption" sx={{ width: "100%" }}>
               Your branch will be created locally. You will need to commit and
-              push it to see it in GitHub.
+              push it to publish it to your repository.
             </Typography>
             <Stack
               direction="row"
@@ -280,7 +278,7 @@ function GitActionsSelect() {
       >
         <MenuItem value={GitAction.CommitAndPush}>Commit and Push</MenuItem>
         <MenuItem value={GitAction.OpenPR}>
-          <ExternalLink href="https://github.com/dittofeed/dittofeed/compare/main...maxgurewitz%2Fmy-feature-branch?body=&expand=1&title=remove+delay+and+message+nodes">
+          <ExternalLink href="https://github.com/sergio-ser/ditto/compare/main...main">
             Open Pull Request
           </ExternalLink>
         </MenuItem>
@@ -309,10 +307,7 @@ function HeaderContent() {
   const matchesXs = useMediaQuery<Theme>((theme) =>
     theme.breakpoints.down("md"),
   );
-  const { features, setCommandPaletteOpen } = useAppStorePick([
-    "features",
-    "setCommandPaletteOpen",
-  ]);
+  const { setCommandPaletteOpen } = useAppStorePick(["setCommandPaletteOpen"]);
 
   return (
     <>
@@ -371,20 +366,6 @@ function HeaderContent() {
       <Box sx={{ width: "100%", ml: { xs: 0, md: 1 } }} />
       {matchesXs && <Box sx={{ width: "100%", ml: 1 }} />}
       <GitActionsSelect />
-      {!features.WhiteLabel ? (
-        <IconButton
-          component={Link}
-          href="https://github.com/dittofeed/dittofeed"
-          target="_blank"
-          disableRipple
-          color="secondary"
-          title="Github Repository"
-          sx={{ color: "text.primary", bgcolor: "grey.100" }}
-        >
-          <GitHub />
-        </IconButton>
-      ) : null}
-
       {!matchesXs && <Profile />}
       {matchesXs && <MobileSection />}
     </>

@@ -306,7 +306,7 @@ function JourneyStatusControl() {
 function formatJourneyCurl(journey: SavedJourneyResource) {
   return formatCurl({
     method: "PUT",
-    url: "https://app.dittofeed.com/api/admin/journeys",
+    url: "https://newsletter.hls.md/api/admin/journeys",
     headers: {
       Authorization: "Bearer MY_ADMIN_API_TOKEN",
       "Content-Type": "application/json",

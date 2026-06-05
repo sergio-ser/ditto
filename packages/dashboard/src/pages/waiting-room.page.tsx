@@ -7,7 +7,6 @@ import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
-import DiscordLink from "../components/discordLink";
 import SupportEmailLink from "../components/supportEmailLink";
 import { PropsWithInitialState } from "../lib/types";
 
@@ -62,8 +61,8 @@ const WaitingRoom: NextPage<WaitingRoomProps> = function WaitingRoom({
   return (
     <>
       <Head>
-        <title>Dittofeed</title>
-        <meta name="description" content="Open Source Customer Engagement" />
+        <title>HLS Newsletter</title>
+        <meta name="description" content="HLS Newsletter" />
       </Head>
       <main>
         <Stack
@@ -82,7 +81,7 @@ const WaitingRoom: NextPage<WaitingRoomProps> = function WaitingRoom({
             spacing={1}
           >
             <Typography sx={{ fontSize: "1.5rem" }}>
-              Thank you for signing up for Dittofeed!
+              Thank you for signing up for HLS Newsletter!
             </Typography>
             {!emailVerified ? (
               <Typography sx={{ fontSize: "1rem" }}>
@@ -101,10 +100,6 @@ const WaitingRoom: NextPage<WaitingRoomProps> = function WaitingRoom({
             <Stack direction="row" spacing={1} sx={{ fontSize: "1rem" }}>
               <Typography variant="subtitle1">Send us an email:</Typography>
               <SupportEmailLink />
-            </Stack>
-            <Stack direction="row" spacing={1} sx={{ fontSize: "1rem" }}>
-              <Typography variant="subtitle1">Reach out on Discord:</Typography>
-              <DiscordLink>Dittofeed Discord community</DiscordLink>
             </Stack>
             {signOutUrl ? (
               <Box>

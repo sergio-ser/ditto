@@ -45,7 +45,7 @@ function formatExecuteBroadcastCurl({
 
   return formatCurl({
     method: "POST",
-    url: "https://app.dittofeed.com/api/admin/broadcasts/execute",
+    url: "https://newsletter.hls.md/api/admin/broadcasts/execute",
     headers: {
       Authorization: "Bearer MY_ADMIN_API_TOKEN",
       "Content-Type": "application/json",

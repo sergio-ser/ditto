@@ -1,5 +1,11 @@
 services:
   lite:
+    image: hls/dittofeed-lite:${IMAGE_TAG:-local}
+    build:
+      context: .
+      dockerfile: ./packages/lite/Dockerfile
+      args:
+        APP_VERSION: ${IMAGE_TAG:-local}
     env_file:
       - .env
     environment:
@@ -10,6 +16,7 @@ services:
       BOOTSTRAP: ${BOOTSTRAP:-true}
 
   admin-cli:
+    image: hls/dittofeed-lite:${IMAGE_TAG:-local}
     env_file:
       - .env
     environment:

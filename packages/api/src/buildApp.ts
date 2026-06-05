@@ -75,8 +75,8 @@ export async function registerApp(
     openapi: {
       openapi: "3.1.0",
       info: {
-        title: "Dittofeed API",
-        description: "Dittofeed API Swagger Documentation",
+        title: "HLS Newsletter API",
+        description: "HLS Newsletter API Swagger Documentation",
         version: "0.0.1",
       },
       components: {
