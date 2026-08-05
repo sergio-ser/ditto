@@ -85,8 +85,6 @@ services:
       kompose.volume.type: configMap
     networks:
       - dittofeed-network-lite
-    ports:
-      - 7233:7233
     volumes:
       - ./packages/backend-lib/temporal-dynamicconfig:/etc/temporal/config/dynamicconfig
   temporal-ui:
@@ -114,8 +112,6 @@ services:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password}
       - POSTGRES_USER=${DATABASE_USER:-postgres}
       - POSTGRES_DB=dittofeed
-    ports:
-      - "5432:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
     networks:
@@ -131,10 +127,6 @@ services:
           memory: ${CLICKHOUSE_CONTAINER_MEM_LIMIT:-2048}m
     environment:
       <<: *clickhouse-credentials
-    ports:
-      - "8123:8123"
-      - "9000:9000"
-      - "9009:9009"
     volumes:
       - clickhouse_lib:/var/lib/clickhouse
       - clickhouse_log:/var/log/clickhouse-server
